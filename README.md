@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+Ruby version: 2.4.2
+Rails version: 5.2.2
+DB engine: sqlite3-1.3.6
+
+Required: run bundle install before executing rails s
+ run rake db:seed and rake db:migrate after cloning repository
+ run rails s or rails server to start server
+ use localhost:3000/ to access main page
