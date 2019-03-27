@@ -1,0 +1,9 @@
+<h3>Заказ из Jinn's Magical Store отправлен</h3>
+<p>
+  Это сообщение уведомляет вас о том, что мы отправили ваш недавний заказ:
+</p>
+
+<table>
+  <tr><th colspan="2">К-во</th><th>Описание</th></tr>
+  <%= render @order.line_items -%>
+</table>
