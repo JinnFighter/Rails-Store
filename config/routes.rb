@@ -9,15 +9,22 @@ Rails.application.routes.draw do
   #get 'sessions/create'
   #get 'sessions/destroy'
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'store#index', as: 'store', via: :all
+  end
+  #resources :orders
+  #resources :line_items
+  #resources :carts
 
-  get 'store/index'
+  #get 'store/index'
 
   resources :products do
     get :who_bought, on: :member
   end
+
 
 
 
@@ -30,7 +37,7 @@ Rails.application.routes.draw do
 # You can have the root of your site routed with "root"
 # (Корневой маршрут к вашему сайту можно получить с помощью "root")
 
-  root to: 'store#index', as: 'store'
+  #root to: 'store#index', as: 'store'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
