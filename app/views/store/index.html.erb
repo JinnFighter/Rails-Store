@@ -1,13 +1,14 @@
 <% if notice %>
 <p id="notice class="alert alert-success"><%= notice %></p>
 <% end %>
+
 <h1 class="text-center"><%= t('.title_html') %></h1>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
   <% cache ['entry', product] do %>
-    <div class="entry border border-info">
+    <div class=" container entry border border-info mt-3 mr-auto ml-auto mb-1 pt-1 pb-1 pl-3 pr-3">
     <%= image_tag(product.image_url, class: "img-fluid") %>
-    <h3><%= product.title %></h3>
+    <h3 class="ml-3 mt-3 mb-1"><%= product.title %></h3>
     <%= sanitize(product.description)  %>
       <div class="price_line">
         <span class="price"><%= number_to_currency(product.price) %></span>
