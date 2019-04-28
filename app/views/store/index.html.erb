@@ -2,15 +2,15 @@
 <p id="notice class="alert alert-success"><%= notice %></p>
 <% end %>
 
-<h1 class=" position-static"><%= t('.title_html') %></h1>
+<h1 class=" position-static text-center"><%= t('.title_html') %></h1>
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
   <% cache ['entry', product] do %>
-    <div class=" container entry border border-info mt-3 mr-auto ml-auto mb-1 pt-1 pb-1 pl-3 pr-3">
-    <%= image_tag(product.image_url, class: "img-fluid") %>
+    <div class=" container entry border border-info mt-3 mr-auto ml-auto mb-1 pt-1 pb-1 pl-3 pr-3 w-50 p-3">
+    <%= image_tag(product.image_url, class: "img-fluid mx-auto d-block") %>
     <h3 class="ml-3 mt-3 mb-1"><%= product.title %></h3>
     <%= sanitize(product.description)  %>
-      <div class="price_line">
+      <div class="price_line d-flex justify-content-between">
         <span class="price"><%= number_to_currency(product.price) %></span>
         <%= button_to t('.add_html'), line_items_path(product_id: product), remote:true, class: "btn btn-primary" %>
       </div>
